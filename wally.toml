@@ -1,0 +1,8 @@
+[package]
+name = "lumin/aegis-studiocomponents"
+version = "0.1.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+
+[dependencies]
+aegis = "lumin/aegis@0.2.0"
