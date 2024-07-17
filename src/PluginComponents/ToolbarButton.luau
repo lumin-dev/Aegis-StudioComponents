@@ -9,13 +9,13 @@ local IgnoredProps = {
 	"Image",
 	"Toolbar",
 	"Active",
-    "Description",
+	"Description",
 }
 
 type Toolbar = {
 	Active: Aegis.State?,
-    Description: string?,
-    OnClick: () -> ()?,
+	Description: string?,
+	OnClick: () -> ()?,
 	Toolbar: PluginToolbar,
 	ToolTip: string,
 	Image: string,
@@ -24,21 +24,16 @@ type Toolbar = {
 }
 
 return function(props: Toolbar)
-    local PluginToolbarButton = props.Toolbar:CreateButton(
-        props.Name,
-        props.ToolTip,
-        props.Image,
-        props.Description
-    )
+	local PluginToolbarButton = props.Toolbar:CreateButton(props.Name, props.ToolTip, props.Image, props.Description)
 
-    if props.Active ~= nil then
-        PluginToolbarButton:SetActive(props.Active)
-        if props.OnClick then
-            PluginToolbarButton.Click:Connect(props.OnClick)
-        end
-    end
+	if props.Active ~= nil then
+		PluginToolbarButton:SetActive(props.Active)
+		if props.OnClick then
+			PluginToolbarButton.Click:Connect(props.OnClick)
+		end
+	end
 
-    for _, propName in IgnoredProps do
+	for _, propName in IgnoredProps do
 		props[propName] = nil
 	end
 	return Update(PluginToolbarButton, props)
