@@ -1,29 +1,19 @@
 local Packages = script.Parent.Parent.Parent
 
 local Aegis = require(Packages.aegis)
-local Update = Aegis.Update
-
-local IgnoredProps = {
-	"ToolTip",
-	"Name",
-	"Image",
-	"Toolbar",
-	"Active",
-	"Description",
-}
 
 type Toolbar = {
 	Active: Aegis.State?,
+	ClickableWhenViewportHidden: boolean?,
 	Description: string?,
 	OnClick: () -> ()?,
 	Toolbar: PluginToolbar,
 	ToolTip: string,
 	Image: string,
 	Name: string,
-	[any]: any,
 }
 
-return function(props: Toolbar)
+return function(props: Toolbar): PluginToolbarButton
 	local PluginToolbarButton = props.Toolbar:CreateButton(props.Name, props.ToolTip, props.Image, props.Description)
 
 	if props.Active ~= nil then
@@ -33,8 +23,11 @@ return function(props: Toolbar)
 		end
 	end
 
-	for _, propName in IgnoredProps do
-		props[propName] = nil
-	end
-	return Update(PluginToolbarButton, props)
+	PluginToolbarButton.ClickableWhenViewportHidden =
+		if props.ClickableWhenViewportHidden ~= nil then
+			props.ClickableWhenViewportHidden
+		else
+			false
+
+	return PluginToolbarButton
 end

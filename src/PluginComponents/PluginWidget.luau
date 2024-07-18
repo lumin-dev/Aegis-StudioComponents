@@ -2,18 +2,6 @@ local Plugin = script:FindFirstAncestorWhichIsA("Plugin")
 local Packages = script.Parent.Parent.Parent
 
 local Aegis = require(Packages.aegis)
-local Update = Aegis.Update
-
-local IgnoredProps = {
-	"Enabled",
-	"Id",
-	"Name",
-	"InitialDockState",
-	"ForceEnabled",
-	"ForceEnabledNextRestart",
-	"FloatingSize",
-	"MinimumSize",
-}
 
 type PluginWidget = {
 	Enabled: Aegis.State?,
@@ -26,7 +14,7 @@ type PluginWidget = {
 	MinimumSize: Vector2,
 }
 
-return function(props: PluginWidget)
+return function(props: PluginWidget): PluginWidget
 	local PluginWidget = Plugin:CreateDockWidgetPluginGui(
 		props.Id,
 		DockWidgetPluginGuiInfo.new(
@@ -47,9 +35,5 @@ return function(props: PluginWidget)
 		PluginWidget.Enabled = props.Enabled
 	end
 
-	for _, propName in IgnoredProps do
-		props[propName] = nil
-	end
-
-	return Update(PluginWidget, props)
+	return PluginWidget
 end
