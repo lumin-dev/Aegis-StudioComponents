@@ -1,6 +1,6 @@
 {
 	"legacyScripts": false,
-	"name": "aegiscomponents-studiopack-dev",
+	"name": "aegiscomponents-studio-dev",
 	"tree": {
 		"$className": "DataModel",
 		"ReplicatedStorage": {

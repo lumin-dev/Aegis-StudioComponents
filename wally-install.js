@@ -15,7 +15,7 @@ const runCommand = (command, callback, finish) => {
 };
 
 const install = 'wally install';
-const sourcemap = `rojo sourcemap "${project_json}".project.json --output sourcemap.json`;
+const sourcemap = `argon sourcemap "${project_json}".project.json --output sourcemap.json`;
 const package_types = 'wally-package-types --sourcemap sourcemap.json Packages/'
 
 runCommand(install, () => {
