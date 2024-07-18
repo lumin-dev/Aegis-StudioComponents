@@ -1,8 +1,20 @@
 [package]
 name = "lumin/aegiscomponents-studio"
-version = "0.0.2"
+description = "A pack of studio-like UI components for Aegis."
+version = "0.0.3"
+license= "MIT"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
+
+exclude = ["**"]
+include = [
+	"default.project.json",
+	"src",
+	"src/**",
+	"LICENSE",
+	"wally.toml",
+	"README.md",
+]
 
 [dependencies]
 aegis = "lumin/aegis@0.2.2"

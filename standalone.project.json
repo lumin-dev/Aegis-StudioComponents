@@ -1,0 +1,9 @@
+{
+    "name": "standalone-build",
+    "tree": {
+        "$path": "Packages",
+        "AegisComponents-Studio": {
+            "$path": "src"
+        }
+    }
+}

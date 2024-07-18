@@ -6,7 +6,7 @@
 		"ReplicatedStorage": {
 			"Packages": {
 				"$path": "Packages",
-				"PluginComponents": {
+				"AegisComponents-Studio": {
 					"$path": "src"
 				}
 			},
